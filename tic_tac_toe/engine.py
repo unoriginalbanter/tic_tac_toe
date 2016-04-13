@@ -144,8 +144,8 @@ class Game(object):
     def check_columns(self):
         '''Checks each column for a winner. Returns the winner, or False else.'''
         winner = False
-        for j in range(len(self.board)): #for each column... (i,j) notation
-            if all(self.pos(j+1)==self.pos(j+i) for i in range(len(self.board))):
+        for j in range(len(self.board)-1): #for each column... (i,j) notation
+            if all(self.board[i][j]==self.board[i+1][j] for i in range(len(self.board)-1)):
                 winner=self.pos(j+1)
         return winner
         
